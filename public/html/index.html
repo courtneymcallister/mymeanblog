@@ -1,1 +1,27 @@
-hi
+<!DOCTYPE html>
+<html ng-app='mymeanblog'>
+  <head>
+    <meta charset="utf-8">
+    <title>Blawg</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.js'></script>
+  </head>
+  <body>
+    <div ng-controller='PostController'>
+
+      <button ng-click='getAll()'>Get all posts</button>
+      <button ng-click='getAllUsers()'>Get all users</button>
+      <hr>
+      <ul>
+        <li ng-repeat='post in posts'>
+          {{ post.title }} - {{ post.body }} - {{ post.created }}
+        </li>
+      </ul>
+
+    </div>
+
+    <script src='/js/app.js'></script>
+    <script src='/js/controllers/post.controller.js'></script>
+    <script src='/js/services/post.services.js'></script>
+  </body>
+</html>
