@@ -5,28 +5,40 @@
 
   function PostService($http){
     var baseURL = '/posts';
-    var posts = [];
 
     function getAll(){
-      return $http.get(baseURL).then(function(res){
-        posts = res.data.posts;
-      });
+      return $http.get(baseURL)
+                  .then(function(res){
+                    console.log(res);
+                  });
     };
 
-    function getOne(id){
-      return $http.get(`${baseURL}/${id}`).then(getAll);
+    function getOne(post){
+      return $http.get(`${baseURL}/${post._id}`)
+                  .then(function(res){
+                    console.log(res);
+                  });
     };
 
     function create(post){
-      return $http.post(baseURL, post).then(getAll);
+      return $http.post(baseURL, post)
+                  .then(function(res){
+                    console.log(res);
+                  });
     };
 
-    function update(id){
-      return $http.put(`${baseURL}/${id}`).then(getAll);
+    function update(post){
+      return $http.put(`${baseURL}/${post._id}`, post)
+                  .then(function(res){
+                    console.log(res);
+                  });
     };
 
-    function deletePost(id){
-      return $http.delete(`${baseURL}/${id}`).then(getAll);
+    function deletePost(post){
+      return $http.delete(`${baseURL}/${post._id}`)
+                  .then(function(res){
+                    console.log(res);
+                  });
     };
 
     return {

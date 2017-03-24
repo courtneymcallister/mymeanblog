@@ -5,36 +5,51 @@
 
   function UserService($http){
     var baseURL = '/users'
-    var users = [];
 
     function signup(user){
-      return $http.post(baseURL, user).then(getAllUsers);
+      return $http.post('/signup', user)
+                  .then(function(res){
+                    console.log(res);
+                  });
     }
     function login(user){
-      return $http.post(baseURL, user).then(getAllUsers);
+      return $http.post('/login')
+                  .then(function(res){
+                    console.log(res);
+                  });
     }
-    function getAllUsers(){
-      return $http.get(baseURL).then(function(res){
-        users = res.data.users;
-      })
+    function getAll(){
+      return $http.get(baseURL)
+                  .then(function(res){
+                    console.log(res);
+                  })
     }
-    function getOneUser(user){
-      return $http.get(`${baseURL}/${user}`).then(getAllUsers);
+    function getOne(user){
+      return $http.get(`${baseURL}/${user._id}`)
+                  .then(function(res){
+                    console.log(res);
+                  });
     }
-    function updateUser(user){
-      return $http.put(`${baseURL}/${user}`).then(getAllUsers);
+    function update(user){
+      return $http.put(`${baseURL}/${user._id}`, user)
+                  .then(function(res){
+                    console.log(res);
+                  });
     }
     function deleteUser(user){
-      return $http.delete(`${baseURL}/${user}`).then(getAllUsers);
+      return $http.delete(`${baseURL}/${user._id}`)
+                  .then(function(res){
+                    console.log(res);
+                  });
     }
 
     return {
       signup: signup,
       login: login,
-      getAllUsers: getAllUsers,
-      getOneUser: getOneUser,
-      updateUser: updateUser,
-      deleteUser: deleteUser
+      getAll: getAll,
+      getOne: getOne,
+      update: update,
+      delete: deleteUser
     }
 
   }
