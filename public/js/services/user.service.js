@@ -13,11 +13,9 @@
                   });
     }
     function login(user){
-      return $http.post('/login')
-                  .then(function(res){
-                    console.log(res);
-                  });
+      return $http.post('/login');
     }
+    
     function getAll(){
       return $http.get(baseURL)
                   .then(function(res){
