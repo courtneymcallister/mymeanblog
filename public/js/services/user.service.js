@@ -9,7 +9,7 @@
     function signup(user){
       return $http.post('/signup', user)
                   .then(function(res){
-                    console.log(res);
+                    return res;
                   });
     }
     function login(user){
