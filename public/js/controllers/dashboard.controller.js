@@ -1,9 +1,9 @@
 (function(){
   angular.module('mymeanblog').controller('DashboardController', DashboardController);
 
-  DashboardController.$inject = ['$scope', PostService];
+  DashboardController.$inject = ['$scope'];
 
-  function DashboardController($scope, PostService){
+  function DashboardController($scope){
     $scope.delete = deletePost;
     $scope.edit = edit;
     $scope.posts = [
