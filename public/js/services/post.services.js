@@ -13,8 +13,8 @@
                   });
     };
 
-    function getOne(post){
-      return $http.get(`${baseURL}/${post._id}`)
+    function getOne(id){
+      return $http.get(`${baseURL}/${id}`)
                   .then(function(res){
                     console.log(res);
                   });
